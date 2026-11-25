@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+:root {
+    --fondo-principal: #F7F7F5;   /* Gris muy claro, cálido */
+    --fondo-blanco: #FFFFFF;
+    --color-acento: #2C5E4F;      /* Verde bosque discreto */
+    --texto-principal: #222222;
+    --texto-suave: #666666;
+    --borde-suave: #E2E2E0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--fondo-principal);
+    color: var(--texto-principal);
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ================= MENÚ LATERAL ================= */
+#menu-lateral {
+    width: 230px;
+    background-color: var(--fondo-blanco);
+    border-right: 1px solid var(--borde-suave);
+    padding: 30px 20px;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+}
+
+#menu-lateral h1 {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    color: var(--color-acento);
+    margin-bottom: 35px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--borde-suave);
+}
+
+#menu-lateral ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#menu-lateral ul li a {
+    display: block;
+    color: var(--texto-suave);
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-transform: capitalize;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#menu-lateral ul li a:hover {
+    background-color: var(--fondo-principal);
+    color: var(--color-acento);
+    font-weight: 600;
+}
+
+/* ================= CONTENIDO PRINCIPAL ================= */
+main {
+    margin-left: 230px;
+    flex: 1;
+    padding: 30px 50px;
+    max-width: 1000px;
+}
+
+/* Barra de navegación interna */
+nav {
+    background-color: var(--fondo-blanco);
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 1px solid var(--borde-suave);
+    margin-bottom: 30px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: color 0.2s;
+}
+
+nav ul li a:hover {
+    color: var(--color-acento);
+    font-weight: 600;
+}
+
+/* ================= SECCIONES ================= */
+section {
+    background-color: var(--fondo-blanco);
+    padding: 35px;
+    border-radius: 8px;
+    border: 1px solid var(--borde-suave);
+    margin-bottom: 30px;
+}
+
+section h2 {
+    font-size: 1.5rem;
+    color: var(--texto-principal);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+section p {
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+section h3 {
+    font-size: 1.1rem;
+    color: var(--color-acento);
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* ================= IMÁGENES ================= */
+.imagen {
+    width: 100%;
+    max-width: 550px;
+    margin: 10px 0 25px 0;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--borde-suave);
+    background-color: #EFEFEF;
+}
+
+.imagen img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Logo en bienvenida más discreto */
+#bienvenido .imagen {
+    max-width: 200px;
+    border-radius: 8px;
+}
+
+#bienvenido .imagen img {
+    height: 200px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    #menu-lateral {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid var(--borde-suave);
+        padding: 20px;
+    }
+
+    #menu-lateral h1 {
+        margin-bottom: 15px;
+    }
+
+    #menu-lateral ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    main {
+        margin-left: 0;
+        padding: 20px;
+    }
+}

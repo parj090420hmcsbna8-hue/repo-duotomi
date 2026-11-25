@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - Leolingo</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0 0 40px;
+            background: #f4f7fb;
+            color: #263445;
+            font-family: Arial, sans-serif;
+        }
+
+        /* --- ESTILOS DEL MENÚ DE NAVEGACIÓN --- */
+        .navbar {
+            background: #ffffff;
+            border-bottom: 1px solid #e5eaf0;
+            box-shadow: 0 2px 10px rgba(38, 52, 69, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 12px 20px;
+            margin-bottom: 28px;
+        }
+
+        .navbar-contenido {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .navbar-marca {
+            font-size: 20px;
+            font-weight: 800;
+            color: #0876bd;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: #526174;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 8px 14px;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-item:hover {
+            background: #f0f4f8;
+            color: #0876bd;
+        }
+
+        /* Marca la página actual en el menú */
+        .nav-item.activo {
+            background: #e6f4ff;
+            color: #0876bd;
+        }
+
+        .nav-item--salir {
+            background: #ffeaea;
+            color: #d63031;
+        }
+
+        .nav-item--salir:hover {
+            background: #d63031;
+            color: #ffffff;
+        }
+        /* ------------------------------------- */
+
+        h1 {
+            margin: 0 0 24px;
+            padding: 0 16px;
+            color: #263445;
+            text-align: center;
+        }
+
+        #contenedor {
+            width: min(100% - 32px, 720px);
+            margin: 0 auto;
+        }
+
+        .perfil-card {
+            padding: 28px;
+            background: #fff;
+            border: 1px solid #e5eaf0;
+            border-radius: 18px;
+            box-shadow: 0 8px 24px rgba(38, 52, 69, 0.08);
+        }
+
+        .foto-perfil-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .foto-perfil {
+            width: 112px;
+            height: 112px;
+            border: 4px solid #e6f4ff;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .perfil-card h2 {
+            margin: 0 0 18px;
+            color: #263445;
+            text-align: center;
+        }
+
+        .datos-perfil,
+        .detalles-progreso {
+            color: #526174;
+        }
+
+        .datos-perfil {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .datos-perfil p,
+        .detalles-progreso p {
+            margin: 8px 0;
+            overflow-wrap: anywhere;
+        }
+
+        .titulo-progreso {
+            margin: 28px 0 14px;
+            color: #263445;
+            font-size: 18px;
+        }
+
+        .estadisticas {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .estadistica {
+            display: flex;
+            min-height: 120px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 16px 10px;
+            border-radius: 14px;
+            text-align: center;
+        }
+
+        .estadistica--porcentaje {
+            background: #e6f4ff;
+            color: #0876bd;
+        }
+
+        .estadistica--experiencia {
+            background: #f0eaff;
+            color: #7041bd;
+        }
+
+        .estadistica--racha {
+            background: #fff0df;
+            color: #c76a12;
+        }
+
+        .estadistica-label {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .estadistica-valor {
+            font-size: 30px;
+            line-height: 1.1;
+        }
+
+        .estadistica-detalle {
+            font-size: 13px;
+        }
+
+        .detalles-progreso {
+            margin-top: 20px;
+            padding-top: 12px;
+            border-top: 1px solid #e5eaf0;
+        }
+
+        .barra-fondo {
+            background: #e5eaf0;
+            border-radius: 99px;
+            height: 10px;
+            width: 100%;
+            margin: 10px 0 18px;
+            overflow: hidden;
+        }
+
+        .barra-relleno {
+            background: #0876bd;
+            height: 100%;
+            border-radius: 99px;
+            transition: width 0.5s ease;
+        }
+
+        .acciones-perfil {
+            margin-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn-practicar {
+            background: #0876bd;
+            color: #fff;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-practicar:hover {
+            background: #065d96;
+        }
+
+        .btn-unidad {
+            background: #2ecc71;
+        }
+
+        .btn-unidad:hover {
+            background: #27ae60;
+        }
+
+        @media (max-width: 600px) {
+            .navbar-contenido {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+
+            .navbar-marca {
+                justify-content: center;
+            }
+
+            .navbar-links {
+                justify-content: center;
+            }
+
+            .perfil-card {
+                padding: 20px 16px;
+            }
+
+            .estadisticas {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .estadistica {
+                min-height: 96px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- MENÚ PRINCIPAL DE LA APLICACIÓN -->
+<nav class="navbar">
+    <div class="navbar-contenido">
+        <a href="index.html" class="navbar-marca">🐾 Leolingo Otomí</a>
+
+        <div class="navbar-links">
+            <a href="index.html" class="nav-item">🏠 Inicio</a>
+            <a href="unidad_animales.html" class="nav-item">🦁 Unidad Animales</a>
+            <a href="perfil.html" class="nav-item activo">👤 Mi Perfil</a>
+            <a href="loging.html" class="nav-item nav-item--salir">🚪 Cerrar Sesión</a>
+        </div>
+    </div>
+</nav>
+
+<h1>Mi Perfil</h1>
+
+<div id="contenedor"></div>
+
+<script>
+    const usuarioApp = {
+        nombre: "Juan de dios pascual",
+        username: "Juan de dios pascual robles",
+        correo: "juanitopili@gmail",
+        nivel: "Intermedio • Nivel 14",
+        fechaRegistro: "15 de agosto de 2025",
+        avatar: "https://png.pngtree.com/png-clipart/20220317/ourmid/pngtree-cartoon-godzilla-kid-png-image_4498705.png",
+        progreso: {
+            porcentajeCurso: 78,
+            cursoActual: "Otomí - Unidad Animales",
+            experienciaXP: 4850,
+            siguienteNivelXP: 5000,
+            rachaDias: 19,
+            leccionesCompletadas: 42,
+            totalLecciones: 54,
+            insignias: ["🔥 Imparable", "🐾 Experto Otomí", "🎯 Constancia"]
+        }
+    };
+
+    function cargarPerfil(usuario) {
+        const contenedor = document.getElementById("contenedor");
+
+        contenedor.innerHTML = `
+            <div class="perfil-card">
+                <div class="foto-perfil-container">
+                    <img class="foto-perfil" src="${usuario.avatar}" alt="Foto de perfil de ${usuario.nombre}">
+                </div>
+
+                <h2>${usuario.nombre}</h2>
+                <div class="datos-perfil">
+                    <p><strong>Usuario:</strong> ${usuario.username} &nbsp;|&nbsp; <strong>Rango:</strong> ${usuario.nivel}</p>
+                    <p><strong>Correo:</strong> ${usuario.correo}</p>
+                    <p><small>Miembro desde el ${usuario.fechaRegistro}</small></p>
+                </div>
+
+                <h3 class="titulo-progreso">Tu Progreso Actual</h3>
+                <div class="estadisticas">
+                    <div class="estadistica estadistica--porcentaje">
+                        <span class="estadistica-label">Completado</span>
+                        <strong class="estadistica-valor">${usuario.progreso.porcentajeCurso}%</strong>
+                        <span class="estadistica-detalle">${usuario.progreso.cursoActual}</span>
+                    </div>
+
+                    <div class="estadistica estadistica--experiencia">
+                        <span class="estadistica-label">Experiencia</span>
+                        <strong class="estadistica-valor">${usuario.progreso.experienciaXP}</strong>
+                        <span class="estadistica-detalle">Meta: ${usuario.progreso.siguienteNivelXP} XP</span>
+                    </div>
+
+                    <div class="estadistica estadistica--racha">
+                        <span class="estadistica-label">Racha Activa</span>
+                        <strong class="estadistica-valor">🔥 ${usuario.progreso.rachaDias}</strong>
+                        <span class="estadistica-detalle">días seguidos</span>
+                    </div>
+                </div>
+
+                <div class="detalles-progreso">
+                    <p><strong>Lecciones completadas:</strong> ${usuario.progreso.leccionesCompletadas} de ${usuario.progreso.totalLecciones}</p>
+                    
+                    <div class="barra-fondo">
+                        <div class="barra-relleno" style="width: ${usuario.progreso.porcentajeCurso}%;"></div>
+                    </div>
+
+                    <p><strong>Insignias obtenidas:</strong> ${usuario.progreso.insignias.join(" &nbsp;•&nbsp; ")}</p>
+
+                    <div class="acciones-perfil">
+                        <a href="unidad_animales.html" class="btn-practicar btn-unidad">
+                            🦁 Continuar Unidad Animales
+                        </a>
+
+                        <button id="btn-practicar" class="btn-practicar">
+                            + Completar lección de hoy (+50 XP)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.getElementById("btn-practicar").addEventListener("click", () => {
+            if (usuario.progreso.leccionesCompletadas < usuario.progreso.totalLecciones) {
+                usuario.progreso.leccionesCompletadas += 1;
+                usuario.progreso.experienciaXP += 50;
+                usuario.progreso.porcentajeCurso = Math.round(
+                    (usuario.progreso.leccionesCompletadas / usuario.progreso.totalLecciones) * 100
+                );
+                cargarPerfil(usuario);
+            } else {
+                alert("¡Felicidades! Ya completaste todas las lecciones de este curso.");
+            }
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        cargarPerfil(usuarioApp);
+    });
+</script>
+
+</body>
+</html>

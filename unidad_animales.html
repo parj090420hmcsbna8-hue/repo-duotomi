@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Aprendiendo Otomí</title>
+
+<link rel="stylesheet" href="estilobarra.css">
+</head>
+
+<body>
+
+<h3 id="vidas">Vidas: ❤️❤️❤️❤️❤️</h3>
+<h3 id="mensaje"></h3>
+
+<!-- LECCION 1: PERRO (tz'unt'yo / tz'yo) -->
+<section id="leccion1" style="background-color:#502258;color:white;">
+
+<h3>Nueva palabra</h3>
+<h1>¿Cuál de estos es un perro?</h1>
+
+<div class="container">
+
+<div class="card" onclick="seleccionar(this)">
+<img src="imagen/images (1).jpg" alt="Cochi">
+<h3>cochi</h3> <!-- Cerdo -->
+</div>
+
+<div class="card" onclick="seleccionar(this)">
+<img src="imagen/images.jpg" alt="Tz'i'ö / Perro">
+<h3>tz'i'ö</h3> <!-- Perro (Otomí) -->
+</div>
+
+<div class="card" onclick="seleccionar(this)">
+<img src="imagen/images (2).jpg" alt="Nzümb'o">
+<h3>nzümb'o</h3>
+</div>
+
+</div>
+
+<div class="botones">
+<!-- Índice 1 (segunda tarjeta) es la correcta -->
+<button class="comprobar" onclick="comprobarRespuesta(1, 1)">COMPROBAR</button>
+<button class="saltar" onclick="mostrarleccion2()">SALTAR</button>
+</div>
+
+</section>
+
+
+<!-- LECCION 2: CABALLO (fani) -->
+<section id="leccion2" style="background-color:#e1a3ec;display:none;">
+
+<h3>Nueva palabra</h3>
+<h1>¿Cuál de estos es un caballo?</h1>
+
+<div class="container">
+
+<div class="card" onclick="seleccionar(this)">
+<img src="imagen/images (3).jpg" alt="Fani">
+<h3>fani</h3> <!-- Caballo -->
+</div>
+
+<div class="card" onclick="seleccionar(this)">
+<img src="imagen/images (4).jpg" alt="Dëti">
+<h3>dëti</h3> <!-- Oveja / Borrego -->
+</div>
+
+<div class="card" onclick="seleccionar(this)">
+<img src="imagen/images (5).jpg" alt="Doro">
+<h3>doro</h3>
+</div>
+
+</div>
+
+<div class="botones">
+<!-- Índice 0 (primera tarjeta) es la correcta -->
+<button class="comprobar" onclick="comprobarRespuesta(2, 0)">COMPROBAR</button>
+<button class="saltar" onclick="mostrarleccion3()">SALTAR</button>
+</div>
+
+</section>
+
+
+<!-- LECCION 3: RANA (we) -->
+<section id="leccion3" style="background-color:#edbff5;display:none;">
+
+<h3>Nueva palabra</h3>
+<h1>¿Cuál de estos es una rana?</h1>
+
+<div class="container">
+
+<div class="card" onclick="seleccionar(this)">
+<img src="imagen/images (6).jpg" alt="We">
+<h3>We</h3> <!-- Rana -->
+</div>
+
+<div class="card" onclick="seleccionar(this)">
+<img src="imagen/images (7).jpg" alt="Mexe">
+<h3>Mexe</h3> <!-- Mesa -->
+</div>
+
+<div class="card" onclick="seleccionar(this)">
+<img src="imagen/images (8).jpg" alt="Penzü">
+<h3>penzü</h3>
+</div>
+
+</div>
+
+<div class="botones">
+<!-- Índice 0 (primera tarjeta) es la correcta -->
+<button class="comprobar" onclick="comprobarRespuesta(3, 0)">COMPROBAR</button>
+<button class="saltar" onclick="mostrarleccion4()">SALTAR</button>
+</div>
+
+</section>
+
+
+<!-- LECCION 4: BORREGA (dëti / matse) -->
+<section id="leccion4" style="background-color:#c5e1f5;display:none;">
+
+<h3>Nueva palabra</h3>
+<h1>¿Cuál de estos es una borrega?</h1>
+
+<div class="container">
+
+<div class="card" onclick="seleccionar(this)">
+<img src="imagen/images (11).jpg" alt="Gêne">
+<h3>Gêne</h3>
+</div>
+
+<div class="card" onclick="seleccionar(this)">
+<img src="imagen/images (9).jpg" alt="Dëti">
+<h3>Dëti</h3> <!-- Borrega / Oveja -->
+</div>
+
+<div class="card" onclick="seleccionar(this)">
+<img src="imagen/images (12).jpg" alt="Nka">
+<h3>Nka</h3>
+</div>
+
+</div>
+
+<div class="botones">
+<!-- Índice 1 (segunda tarjeta) es la correcta -->
+<button class="comprobar" onclick="comprobarRespuesta(4, 1)">COMPROBAR</button>
+<button class="saltar" onclick="mostrarleccion5()">SALTAR</button>
+</div>
+
+</section>
+
+
+<!-- LECCION 5: OSO (zanga) -->
+<section id="leccion5" style="background-color:#d5edc1;display:none;">
+
+<h3>Nueva palabra</h3>
+<h1>¿Cuál de estos es un oso?</h1>
+
+<div class="container">
+
+<div class="card" onclick="seleccionar(this)">
+<img src="imagen/images (12).jpg" alt="Zanga">
+<h3>Zanga</h3> <!-- Oso -->
+</div>
+
+<div class="card" onclick="seleccionar(this)">
+<img src="imagen/images (3).jpg" alt="Foy'o">
+<h3>Foy'o</h3>
+</div>
+
+<div class="card" onclick="seleccionar(this)">
+<img src="imagen/images (11).jpg" alt="Mixtu">
+<h3>Mixtu</h3> <!-- Gato -->
+</div>
+
+</div>
+
+<div class="botones">
+<!-- Índice 0 (primera tarjeta) es la correcta -->
+<button class="comprobar" onclick="comprobarRespuesta(5, 0)">COMPROBAR</button>
+<button class="saltar" onclick="terminar()">SALTAR</button>
+</div>
+
+</section>
+
+
+<!-- RESULTADO -->
+<section id="resultado" style="display:none;background-color:#35134D;color:white;">
+
+<h1 id="tituloResultado"></h1>
+<h2 id="textoResultado"></h2>
+
+<button class="comprobar" onclick="location.reload()">
+VOLVER A JUGAR
+</button>
+
+</section>
+
+
+<script>
+
+// VARIABLES
+let vidas = 5;
+let seleccion = null;
+let juegoTerminado = false;
+let comprobando = false;
+
+
+// SELECCIONAR RESPUESTA
+function seleccionar(elemento) {
+
+    if (juegoTerminado || comprobando) return;
+
+    let seccion = elemento.closest("section");
+
+    seccion.querySelectorAll(".card").forEach(card => {
+        card.classList.remove("seleccionada");
+        card.classList.remove("incorrecta");
+    });
+
+    elemento.classList.add("seleccionada");
+
+    seleccion = elemento;
+
+    document.getElementById("mensaje").innerHTML =
+        "✅ Respuesta seleccionada: " +
+        elemento.querySelector("h3").innerText;
+}
+
+
+// ACTUALIZAR VIDAS
+function actualizarVidas() {
+
+    document.getElementById("vidas").innerHTML =
+        "Vidas: " +
+        "❤️".repeat(vidas) +
+        "🖤".repeat(5 - vidas);
+
+}
+
+
+// COMPROBAR RESPUESTA
+function comprobarRespuesta(leccion, correcta) {
+
+    if (juegoTerminado || comprobando) return;
+
+    let seccion = document.getElementById("leccion" + leccion);
+
+    if (seleccion === null || !seccion.contains(seleccion)) {
+
+        document.getElementById("mensaje").innerHTML =
+            "⚠️ ¡Selecciona una imagen primero!";
+
+        return;
+    }
+
+    let tarjetas = seccion.querySelectorAll(".card");
+
+    let indice = Array.from(tarjetas).indexOf(seleccion);
+
+    // RESPUESTA CORRECTA
+    if (indice === correcta) {
+
+        comprobando = true;
+
+        document.getElementById("mensaje").innerHTML =
+            "🎉 ¡Excelente! Respuesta correcta.";
+
+        seleccion.style.border = "4px solid green";
+
+        setTimeout(function() {
+            comprobando = false;
+            avanzar(leccion);
+        }, 1200);
+
+    }
+
+    // RESPUESTA INCORRECTA
+    else {
+
+        vidas--;
+
+        actualizarVidas();
+
+        seleccion.classList.remove("seleccionada");
+        seleccion.classList.add("incorrecta");
+
+        document.getElementById("mensaje").innerHTML =
+            "❌ ¡Respuesta incorrecta! Perdiste una vida.";
+
+        seleccion = null;
+
+        if (vidas <= 0) {
+
+            comprobando = true;
+
+            setTimeout(function() {
+                perder();
+            }, 1200);
+
+        }
+
+    }
+
+}
+
+
+// AVANZAR DE LECCION
+function avanzar(leccion) {
+
+    if (juegoTerminado) return;
+
+    document.getElementById("leccion" + leccion).style.display = "none";
+
+    seleccion = null;
+
+    document.getElementById("mensaje").innerHTML = "";
+
+    if (leccion < 5) {
+
+        document.getElementById("leccion" + (leccion + 1))
+        .style.display = "block";
+
+    } else {
+
+        ganar();
+
+    }
+
+}
+
+
+// BOTONES PARA SALTAR
+function mostrarleccion2() {
+    avanzar(1);
+}
+
+function mostrarleccion3() {
+    avanzar(2);
+}
+
+function mostrarleccion4() {
+    avanzar(3);
+}
+
+function mostrarleccion5() {
+    avanzar(4);
+}
+
+function terminar() {
+    ganar();
+}
+
+
+// PERDER
+function perder() {
+
+    juegoTerminado = true;
+
+    document.querySelectorAll("section").forEach(seccion => {
+        seccion.style.display = "none";
+    });
+
+    document.getElementById("resultado").style.display = "block";
+
+    document.getElementById("tituloResultado").innerHTML =
+        "💀 ¡GAME OVER!";
+
+    document.getElementById("textoResultado").innerHTML =
+        "Te quedaste sin vidas. ¡Sigue practicando Otomí!";
+
+    document.getElementById("mensaje").innerHTML = "";
+
+}
+
+
+// GANAR
+function ganar() {
+
+    juegoTerminado = true;
+
+    document.querySelectorAll("section").forEach(seccion => {
+        seccion.style.display = "none";
+    });
+
+    document.getElementById("resultado").style.display = "block";
+
+    document.getElementById("tituloResultado").innerHTML =
+        "🏆 ¡FELICIDADES!";
+
+    document.getElementById("textoResultado").innerHTML =
+        "¡Terminaste las cinco lecciones de Aprendiendo Otomí!";
+
+    document.getElementById("mensaje").innerHTML = "";
+
+}
+
+
+// INICIAR VIDAS
+actualizarVidas();
+
+</script>
+
+</body>
+</html>
